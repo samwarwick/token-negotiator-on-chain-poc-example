@@ -291,6 +291,7 @@
          document.getElementById("mySidenav").style.width = "0";
       }
 
+      /*
       var negotiator = new negotiator.Client({
          type: 'active',
          issuers: [
@@ -300,6 +301,23 @@
             { contract: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656', chain: 'rinkeby', ref: "stl rnd bayc derivatives", openSeaSlug: 'stl-rnd-bayc-derivatives' },
             { contract: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656', chain: 'rinkeby', ref: "stl riot racers", openSeaSlug: 'stl-rnd-riot-racers' }
          ],
+         options: {
+            overlay: {
+               openingHeading: "Open a new world of discounts available with your tokens.",
+               issuerHeading: "Get discount with Ticket",
+               repeatAction: "try again",
+               theme: "light",
+               position: "bottom-right"
+            },
+            filters: {},
+         }
+      });
+      */
+      var negotiator = new negotiator.Client({
+         type: 'active',
+         issuers: [
+            { contract: '0x09e09a5e171ea4e97d87e489c91af1897043821a', chain: 'rinkeby', ref: "Sleepy Koalas", openSeaSlug: 'sleepykoala-xxiehahwgb' }
+              ],
          options: {
             overlay: {
                openingHeading: "Open a new world of discounts available with your tokens.",
@@ -466,6 +484,13 @@
                wt = selectedTokens[key].tokens.length;
                offers.offerE.validation(selectedTokens[key].tokens.length);
 
+            }
+
+            if (key.includes('sleepykoala-xxiehahwgb')) {
+               bayc = selectedTokens[key].tokens.length;
+               offers.offerA.validation(bayc);
+               offers.offerC.validation(bayc, wt);
+               offers.offerF.validation(bayc);
             }
 
          }
